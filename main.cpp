@@ -1,5 +1,7 @@
 
+#include <climits>
 #include <iostream>
+#include <ostream>
 
 /*
   using here is like pulling incode and using it as a declared method or value
@@ -49,5 +51,52 @@ int main(int arg_Count, char *arg_Vector[])
   */
   // cout << __cplusplus << endl;
 
+  /*
+   * this code bellow will overflow the ide and complier will point this out but keep a mind out
+   */
+  short value1 {30000};
+  short value2 {1000};
+  short total {value1 * value2};
+  cout << total << endl;
+
+  /*
+   * sizeof will give you size of bytes of a given type
+   */
+
+  cout << "char: " << sizeof(char) << " bytes" << endl;
+  cout << "unsigned char: " << sizeof(unsigned char) << " bytes" << endl;
+  cout << "int: " << sizeof(int) << " bytes" << endl;
+  cout << "unsigned int: " << sizeof(unsigned int) << " bytes" << endl;
+  cout << "long int" << sizeof(long int) << " bytes" << endl;
+  cout << "short: " << sizeof(short) << " bytes" << endl;
+  cout << "long: " << sizeof(long) << " bytes" << endl;
+  cout << "long long" << sizeof(long long) << "bytes" << endl;
+  cout << "unsigned long" << sizeof(unsigned long) << "bytes" << endl;
+  cout << "float" << sizeof(float) << "bytes" << endl;
+  cout << "double" << sizeof(double) << "bytes" << endl;
+  cout << "long double" << sizeof(long double) << "bytes" << endl;
+ 
+
+  /*
+   * since they are all CAPs I think it's a macro that tells you the max and min of a given base type
+   */
+  cout << "Max & Min Value of char: " << CHAR_MAX << " & " << CHAR_MIN << endl;
+ 
+  /*
+   * C++ has many diffrent type of constants 
+   *  - Literal constants
+   *  - Declared constants
+   *  - Constant Expression
+   *  - Enumerated constants
+   *  - Defined constants
+   */
+
+  // Literal constants 
+  std::string literal_constants = "this is a literal constants";
+  cout << literal_constants << " \n" << endl; 
+
+  // this is Defined constants it's completed in per-process
+  #define pi 3.141
+  const double pi2 {3.141};
   return 0;
 }
